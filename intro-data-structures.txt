@@ -1,0 +1,63 @@
+1. A line of people at an amusement park ride.
+• The line is composed of members, represented as strings.
+• There is a front to the line, as well as a back.
+• When someone enters the line, place them at the end.
+• People may leave the line whenever they see fit, and those behind them take their place.
+
+2. Given the above real-world information, use an array data structure to code the following solution.
+ a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+ b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+function lastPerson(people) {
+ let newPerson = people.map(person => person);
+  newPerson.push("Mary");
+  return newPerson;
+}
+ c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+
+function findPersonInLine(people){
+  people.includes("Josh");
+  return (people.indexOf("Josh"));
+}
+
+d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+function findFriend(people){
+  var e = (people.includes("Emily"));
+  if(e == true){
+  console.log("Found");
+  }else{
+    return "Emily not found.";
+  }
+}
+
+e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+function helpFriend(people) {
+  let list = people.map(person => person);
+  list.splice(1, 0, "Melissa");
+  return list;
+}
+ f) If Patrick wants to leave the line, how would you delete him from the array?
+ function friendRemaining(people) {
+  let friendsHere = people.map(friend => friend);
+  friendsHere.splice(3, 1);
+  return friendsHere;
+}
+
+3. Provide another real-world example that you can model using a data structure.
+
+Parking garage 
+SET parking fees by hour/day
+SET total number of parking spaces 
+SET number of handicapped parking spaces 
+SET number of uncovered(rooftop) parking spaces
+SET number of covered parking spaces
+SET number of reserved spaces
+SET letter for garage level
+
+4. How would your data structure allow developers to access and manipulate the data?
+ The parking spaces would be tracked by the number of available and unavailable spaces based upon the of number of cars that entered and left the garage. Space availability could also be tracked for each level. And each level would be assigned a letter. Developers could change the parking fee based on special events and the season. Prices would then increase or decrease based on demand. Developers could create a script to close a level once it was filled, and reopen the level as cars left that area. If additional spaces were to be assigned as reserved or handicapped, developers could choose which spaces were the best choices. They would then set those spaces as “unavailable” until the spaces were permanently given their designation. 
+
+
+
