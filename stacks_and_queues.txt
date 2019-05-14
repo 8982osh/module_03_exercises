@@ -1,0 +1,69 @@
+1. What is the main difference between a stack and a queue?
+
+A stack data priority is based upon what element was last added to the stack. That element will then be the first one accessed and processed. The queue accesses the first element that was first added to its data structure. 
+2. What are the similarities between stacks and queues?
+
+Stacks and queues both act as data structures. They both have a process on which data is to be accessed first. Both will store any type of data.  
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+The stack would be best for the UNDO option. UNDO would focus on the last action you performed. So if you wanted to UNDO the last delete or typed word, this would fit with the “last in, first out” concept. 
+
+The REDO option works best with the queue. Since you are requesting that an UNDO action be performed again, this would fit with the “first in, first out”.    
+Programming Questions
+You may program the following question in any language of your choice. Before you begin coding, write out a plan as to how you will solve the question.
+	
+1. Given a string, reverse it using a stack. For example, the string "Bloc!"should be converted to "!colB".
+
+var school = "Bloc!";
+
+function reverseWord(school){
+  var oldStack = [];
+  var newStack = '';
+  var j,k;
+  for(j=0; j<school.length; j++){
+    oldStack.push(school[j]); 
+  }
+  
+  while(!oldStack.length == 0){
+    newStack = newStack + oldStack.pop(k); 
+  }
+  return newStack;
+} 
+
+console.log(reverseWord(school)); 
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first. 
+var stuff = '12345'; 
+
+function pop(stuff) {
+  var newQueue = [];
+  var j, lastItem;
+
+  for(j=0; j<stuff.length; j++){
+    newQueue.push(stuff[j]);
+  } 
+  lastItem = newQueue.pop(newQueue.length -1);
+  return lastItem;
+}   
+console.log(pop(stuff));
+
+
+To delete an item, take all of the elements in the queue one at a time and put them at the end of the queue, except for the last one which should be removed and returned.
+
+1. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+FUNCTION enqueue(element)
+  var list = [];
+  FOR (count=0; count<element.length; count++)
+  list.push.(element[count]);
+END FUNCTION
+
+FUNCTION dequeue
+ var first_element, list; 
+ first_element = list.pop(list.length -1);
+ RETURN first_element
+END FUNCTION
+
+
+
+
