@@ -9,11 +9,14 @@ Programming Assignment
 Write the following algorithms in pseudocode:
 1. Create a function that takes two numbers and prints out the greater number.
 
-READ two_numbers
-IF first_number > than second_number
-PRINT first_number
-ELSE
-PRINT second_number
+FUNCTION readNumbers
+  INPUT first_number, second_number
+    IF first_number > second_number
+      PRINT first_number
+    ELSE
+      PRINT second_number
+    ENDIF
+ENDFUNCTION
 
 2. Create a function that prints out the numbers from 1 to 100.
 
@@ -25,17 +28,28 @@ ENDWHILE
 
 3. Create a function that searches for a specific entry in a phonebook.
 
-WHILE Gustaf != entry in phoneBook
-REPEAT comparing Gustaf to entries in phoneBook
-ELSE ENDWHILE
+var list = [Bambam, Jey, Sasha, Gustaf, Molly-O];
+
+FOR each item in list
+  IF list contains Gustaf
+    PRINT “Found you Gustaf!”
+  ELSE
+    PRINT “Gustaf not found.” 
+END 
 
 4. Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
 
-function findGustaf(phoneBook) {
-  while (‘Gustaf’ != phoneBook) {
-    count++;
-  } else{
-  console.log(’Found you Gustaf!’);
-  break;  
+var list = ['Bambam', 'Jey', 'Sasha', 'Gustaf', 'Molly-O'];
+
+function findPerson(list) {
+  for(var j=0; j<list.length; j++){
+    if (list.includes('Gustaf')){
+     return "Found Gustaf";
+    }else{
+      return "Gustaf not found.";
+    }
+  }
 }
+
+console.log(findPerson(list));
  
