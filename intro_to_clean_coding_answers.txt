@@ -20,12 +20,12 @@ FUNCTION do(x, y)              // Creating a new function
 END FUNCTION
 
 ===Refactored===
-FUNCTION d(x, y)
-  IF y = “F” THEN
-    SET z to (x−32) * (5/9) 
-  ELSE IF y = "C" THEN
-    SET z to x * 1.8000 + 32.00
-  PRINT z
+FUNCTION d(temperature, measurement)
+  IF measurement = “F” THEN
+    SET degrees to (temperature − 32) * (5/9) 
+  ELSE IF measurement = "C" THEN
+    SET degrees to (temperature * 1.8000 + 32.00)
+  PRINT degrees
   END IF
 END FUNCTION
 
@@ -71,16 +71,16 @@ END FUNCTION
 
 ===Refactored===
 FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
-  var subTaxTotal = subTotal * tax;
-
-   PRINT "Your total due is: " + subTotal * discountRate + subTaxTotal
+  var subTotalAmount = subTotal * discountRate + (subTotal * tax);
+  
+   PRINT "Your total due is: " + subTotalAmount
 
    IF paymentType = 'CASH' THEN
        CALL getPayment RETURNING amount
-       PRINT "Change due: " + amount - subTotal * discountRate + subTaxTotal
+       PRINT "Change due: " + amount - subTotalAmount
    ELSE IF paymentType = 'CREDIT CARD' THEN
        CALL getPayment RETURNING amount
-       PRINT "Your credit card has been charged: " + subTotal * discountRate + subTaxTotal
+       PRINT "Your credit card has been charged: " + subTotalAmount
    END IF
 END FUNCTION
 
